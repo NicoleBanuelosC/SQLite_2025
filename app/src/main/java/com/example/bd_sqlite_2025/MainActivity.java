@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         if(v.getId() == R.id.btn_altas)
             i = new Intent(this, ActivityAltas.class);
         else if (v.getId() == R.id.btn_consultas)
-            i = new Intent(this, ActivityAltas.class);
+            i = new Intent(this, ActivityConsultas.class);
 
 
         startActivity(i);

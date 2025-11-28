@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import db.EscuelaBD;
-import entities.Alumno;
+import Entities.Alumno;
 
 public class ActivityConsultas extends Activity {
 
