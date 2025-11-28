@@ -1,0 +1,59 @@
+plugins {
+    alias(libs.plugins.android.application)
+}
+
+android {
+    namespace 'com.example.bd_sqlite_2025'
+    // Mantener un compileSdk alto para compatibilidad de librerías
+    compileSdk 35
+
+    defaultConfig {
+        applicationId "com.example.bd_sqlite_2025"
+        // minSdk 24 es un valor más común que 35, brindando mayor compatibilidad
+        minSdk 24
+        targetSdk 35
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    // Usar una versión moderna de Java para compilación (ej: 17)
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    // Definición de la versión de Room
+    def room_version = "2.6.1" // Versión estable actual de Room
+
+    // Dependencias estándar
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.activity
+    implementation libs.constraintlayout
+    testImplementation libs.junit
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+
+    // --- DEPENDENCIAS DE ROOM (CONEXIÓN Y COMPILACIÓN) ---
+    // 1. Conexión (Runtime): La librería base que permite a la app interactuar con la DB.
+    implementation "androidx.room:room-runtime:$room_version"
+
+    // 2. Compilación (Annotation Processor): Genera el código de implementación de Room. ¡Requerido!
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+
+    // 3. Prueba (Testing): Herramientas para probar la base de datos. ¡Requerido por el usuario!
+    testImplementation "androidx.room:room-testing:$room_version"
+
+    // (Opcional) Si usas Paging 3
+    // implementation "androidx.room:room-paging:$room_version"
+}
