@@ -16,7 +16,9 @@ public class Alumno {
    public String nombre;
 
     public Alumno(String nc, String n) {
-    }
+        this.numControl = nc;
+        this.nombre = n;
+    }//publicAlumno
 
     @NonNull
     public String getNumControl() { return numControl; }
