@@ -9,7 +9,7 @@ import androidx.room.RoomDatabase;
 import Controllers.AlumnoDAO;
 import Entities.Alumno;
 
-@Database(entities = {Alumno.class}, version = 1)
+@Database(entities = {Alumno.class}, version = 2)
 public abstract class EscuelaBD extends RoomDatabase {
 
     private static EscuelaBD INSTANCE;
@@ -20,9 +20,9 @@ public abstract class EscuelaBD extends RoomDatabase {
         if (INSTANCE == null) {
             INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                     EscuelaBD.class, "BD_Escuela").build();
-        }
+        }//if
         return INSTANCE;
-    }
+    }//satic
 
     public static void destroyInstance(){INSTANCE = null;}
 }//public class
