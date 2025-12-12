@@ -8,6 +8,9 @@
 
     <string name="txt_titulo_altas"> AGREGAR ALUMNOS </string>
 
+    <string name="title_consultas">Buscar alumnos</string>
+    <string name="label_filtro">Filtro (nombre):</string>
+    <string name="btn_buscar">Buscar</string>
 
 
 </resources>

@@ -13,31 +13,32 @@ import Entities.Alumno;
 @Dao
 public interface AlumnoDAO {
 
-    //- - - A L T A S - - -
+    //-------------- ALTAS ----------------
     @Insert
     public void agregarAlumno(Alumno alumno);
 
-    // - - - B A J A S - - -
+    //-------------- BAJAS ----------------
     @Delete
-    public void eliminarAlumno(Alumno alumno); //eliminar por instancia de objeto
+    public void eliminarAlumno(Alumno alumno);
 
     @Query("DELETE FROM alumno WHERE numControl=:nc")
     public void eliminarAlumnoPorNumControl(String nc);
 
-    // - - - C A M B I O S - - -
+    //-------------- CAMBIOS ----------------
     @Update
     public void actualizarAlumno(Alumno alumno);
 
     //@Query("UPDATE alumno SET nombre=:n, primerAp=:pa WHERE numControl=:nc")
-    @Query("UPDATE alumno SET nombre=:n WHERE numControl=:nc")
-    public void actualizarAlumno(String n, String nc);
+    @Query("UPDATE Alumno SET nombre = :n, apellido1 = :a1, apellido2 = :a2 WHERE numControl = :nc")
+    public void actualizarAlumnoPorNumControl(String n, String a1, String a2, String nc);
+    @Query("SELECT * FROM Alumno WHERE numControl = :nc LIMIT 1")
+    Alumno obtenerAlumnoPorNumControl(String nc);
 
-    // - - - C O N S U L T A S - - -
+    //-------------- CONSULTAS ----------------
     @Query("SELECT * FROM alumno")
     public List<Alumno> mostrarTodos();
 
-    // *** CORRECCIÓN APLICADA AQUÍ ***
-    @Query("SELECT * FROM alumno WHERE nombre = :n")
+    @Query("SELECT * FROM alumno WHERE nombre=:n")
     public List<Alumno> mostrarPorNombre(String n);
 
 }//public interface
