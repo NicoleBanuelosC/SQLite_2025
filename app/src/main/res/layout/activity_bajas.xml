@@ -22,7 +22,7 @@
         android:layout_marginStart="68dp"
         android:layout_marginTop="48dp"
         android:ems="10"
-        android:hint="solo numeros "
+        android:hint="ingresa solo nuemeros"
         android:inputType="text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
@@ -31,7 +31,7 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ingrese el numero de control del alumno que quier eliminar "
+        android:text="ingresa el num de control del alumno que se desea eliminar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />

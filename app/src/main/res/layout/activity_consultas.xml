@@ -35,7 +35,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
         android:ems="10"
-        android:hint="Buscar por Nombre"
+        android:hint="Buscar por nombre"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView5"
@@ -66,21 +66,21 @@
             android:layout_height="wrap_content"
             android:layout_weight="2.5"
             android:textStyle="bold"
-            android:text="Nombre" />
+            android:text="Nombre: " />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2.5"
             android:textStyle="bold"
-            android:text="AP1" />
+            android:text="PA" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2.5"
             android:textStyle="bold"
-            android:text="AP2" />
+            android:text="SA" />
 
     </LinearLayout>
 

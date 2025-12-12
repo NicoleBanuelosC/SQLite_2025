@@ -1,17 +1,16 @@
 plugins {
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.androidApplication)
+
 }
 
 android {
     namespace 'com.example.bd_sqlite_2025'
-    // Mantener un compileSdk alto para compatibilidad de librerías
     compileSdk 35
 
     defaultConfig {
         applicationId "com.example.bd_sqlite_2025"
-        // minSdk 24 es un valor más común que 35, brindando mayor compatibilidad
-        minSdk 24
-        targetSdk 35
+        minSdk 26
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -24,18 +23,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    // Usar una versión moderna de Java para compilación (ej: 17)
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
 }
 
 dependencies {
-    // Definición de la versión de Room
-    def room_version = "2.6.1" // Versión estable actual de Room
 
-    // Dependencias estándar
+    // Dependencias Generales de Android (las que ya tenías)
     implementation libs.appcompat
     implementation libs.material
     implementation libs.activity
@@ -44,16 +40,21 @@ dependencies {
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
 
-    // --- DEPENDENCIAS DE ROOM (CONEXIÓN Y COMPILACIÓN) ---
-    // 1. Conexión (Runtime): La librería base que permite a la app interactuar con la DB.
+    // Define la versión de Room una sola vez
+    def room_version = "2.6.1"
+
+    // Obligatorias para Room con Java:
     implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version" // Usa este para Java
 
-    // 2. Compilación (Annotation Processor): Genera el código de implementación de Room. ¡Requerido!
-    annotationProcessor "androidx.room:room-compiler:$room_version"
-
-    // 3. Prueba (Testing): Herramientas para probar la base de datos. ¡Requerido por el usuario!
+    // Opcionales (puedes dejarlas o quitarlas si no las usas):
+    implementation "androidx.room:room-rxjava2:$room_version"
+    implementation "androidx.room:room-rxjava3:$room_version"
+    implementation "androidx.room:room-guava:$room_version"
     testImplementation "androidx.room:room-testing:$room_version"
+    implementation "androidx.room:room-paging:$room_version"
 
-    // (Opcional) Si usas Paging 3
-    // implementation "androidx.room:room-paging:$room_version"
+    // Nota: ¡Asegúrate de que la versión de Room (2.8.3) sea compatible con tu
+    // 'compileSdk 35' o actualízala a la versión más reciente (como 2.6.1 o superior)!
+
 }
